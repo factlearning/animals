@@ -1,144 +1,152 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>...loading animals....</title>
-    <meta name="AR Animals" content="AR Animals">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Location Based AR.js demo</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script>
+      window.onload = () => {                       navigator.geolocation.getCurrentPosition((position) => {
+        document.querySelector('a-text').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
+      });
+     }
+    </script>
   </head>
 
-  <body>
-    <a-scene background="color: #FAFAFA";
-    sortObjects: true;
-    precision: medium;">
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
 
-<a-assets>
-<a-asset-item id="bison" src="assets/bison/bison.gltf"></a-asset-item>
-<a-asset-item id="camel" src="assets/dromedary_camel/dromedary_camel.gltf"></a-asset-item>
-<a-asset-item id="cattle" src="assets/gaur_cattle/gaur_cattle.gltf"></a-asset-item>
-<a-asset-item id="elephant" src="assets/elephant/elephant.gltf"></a-asset-item>
-<a-asset-item id="gemsbok" src="assets/gemsbok/gemsbok.gltf"></a-asset-item>
-<a-asset-item id="giraffe" src="assets/giraffe/giraffe.gltf"></a-asset-item>
-<a-asset-item id="hippo" src="assets/hippo/hippo.gltf"></a-asset-item>
-<a-asset-item id="kangaroo" src="assets/red_kangaroo/red_kangaroo.gltf"></a-asset-item>
-<a-asset-item id="kudu" src="assets/greater_kudu_mf/greater_kudu_mf.gltf"></a-asset-item>
-<a-asset-item id="oryx" src="assets/scimitar_oryx/scimitar_oryx.gltf"></a-asset-item>
-<a-asset-item id="ostrich" src="assets/ostrich/ostrich.gltf"></a-asset-item>
-<a-asset-item id="penguin" src="assets/penguin/penguin.gltf"></a-asset-item>
-<a-asset-item id="tiger" src="assets/bengal_tiger/bengal_tiger.gltf"></a-asset-item>
-<a-asset-item id="whale" src="assets/humpback_whale/humpback_whale.gltf"></a-asset-item>
-<a-asset-item id="zebra" src="assets/zebra/zebra.gltf"></a-asset-item>
-
-      </a-assets>
-
-     <!-- position in meters ="x (-left +right), y (height), z (-front +behind); -->
-
-<a-entity
-position="-12.10949 -1.5 4.11886"
-gltf-model="#bison"
-scale="0.1 0.1 0.1"
-rotation="0 -109.05220306283984 0">
-</a-entity>
-
-<a-entity
-position="-5.28644 -1.5 3.43762"
-gltf-model="#camel"
-scale="0.1 0.1 0.1"
-rotation="0 -128.27035342711793 0">
-</a-entity>
-
-<a-entity
-position="-5.08874 -1.5 -7.57507"
-gltf-model="#gaur"
-scale="0.1 0.1 0.1"
-rotation="0 76.25839070073205 0">
-</a-entity>
-
-<a-entity
-position="2.12173 -1.5 -10.44339"
-gltf-model="#elephant"
-scale="0.1 0.1 0.1"
-rotation="0 22.418692607878853 0">
-</a-entity>
-
-<a-entity
-position="7.67604 -1.5 -0.0676"
-gltf-model="#gemsbok"
-scale="0.1 0.1 0.1"
-rotation="0 -14.733036743993987 0">
-</a-entity>
-
-<a-entity position="4.05325 -1.5 4.03827"
-gltf-model="#giraffe"
-scale="0.1 0.1 0.1"
-rotation="0 22.418692607878853 0">
-</a-entity>
+    <a-assets>
+      <a-asset-item id="bison" src="assets/bison/bison.gltf"></a-asset-item>
+      <a-asset-item id="camel" src="assets/dromedary_camel/dromedary_camel.gltf"></a-asset-item>
+      <a-asset-item id="cattle" src="assets/gaur_cattle/gaur_cattle.gltf"></a-asset-item>
+      <a-asset-item id="elephant" src="assets/elephant/elephant.gltf"></a-asset-item>
+      <a-asset-item id="gemsbok" src="assets/gemsbok/gemsbok.gltf"></a-asset-item>
+      <a-asset-item id="giraffe" src="assets/giraffe/giraffe.gltf"></a-asset-item>
+      <a-asset-item id="hippo" src="assets/hippo/hippo.gltf"></a-asset-item>
+      <a-asset-item id="kangaroo" src="assets/red_kangaroo/red_kangaroo.gltf"></a-asset-item>
+      <a-asset-item id="kudu" src="assets/greater_kudu_mf/greater_kudu_mf.gltf"></a-asset-item>
+      <a-asset-item id="oryx" src="assets/scimitar_oryx/scimitar_oryx.gltf"></a-asset-item>
+      <a-asset-item id="ostrich" src="assets/ostrich/ostrich.gltf"></a-asset-item>
+      <a-asset-item id="penguin" src="assets/penguin/penguin.gltf"></a-asset-item>
+      <a-asset-item id="tiger" src="assets/bengal_tiger/bengal_tiger.gltf"></a-asset-item>
+      <a-asset-item id="whale" src="assets/humpback_whale/humpback_whale.gltf"></a-asset-item>
+      <a-asset-item id="zebra" src="assets/zebra/zebra.gltf"></a-asset-item>
+    </a-assets>
 
 
-<a-entity position="-1.00627 -1.5 4.29577"
-gltf-model="#hippo"
-scale="0.1 0.1 0.1"
-rotation="0 -32.25809682366048 0">
-</a-entity>
+    <a-entity
+    position="-12.10949 -1.5 4.11886"
+    gltf-model="#bison"
+    scale="0.1 0.1 0.1"
+    rotation="0 -109.05220306283984 0">
+    </a-entity>
 
-<a-entity
-position="4.4554 -1.5 6.54878"
-gltf-model="#kangaroo"
-scale="0.1 0.1 0.1"
-rotation="0 -86.75211271855308 0">
-</a-entity>
+    <a-entity
+    position="-5.28644 -1.5 3.43762"
+    gltf-model="#camel"
+    scale="0.1 0.1 0.1"
+    rotation="0 -128.27035342711793 0">
+    </a-entity>
 
+    <a-entity
+    position="-5.08874 -1.5 -7.57507"
+    gltf-model="#gaur"
+    scale="0.1 0.1 0.1"
+    rotation="0 76.25839070073205 0">
+    </a-entity>
 
-<a-entity
-position="-10.69143 -1 11.93308"
-gltf-model="#kudu"
-scale="0.1 0.1 0.1"
-rotation="0 -29.548579410486813 0">
-</a-entity>
+    <a-entity
+    position="2.12173 -1.5 -10.44339"
+    gltf-model="#elephant"
+    scale="0.1 0.1 0.1"
+    rotation="0 22.418692607878853 0">
+    </a-entity>
 
-<a-entity
-position="5.02999 -1 -5.99873"
-gltf-model="#oryx"
-scale="0.1 0.1 0.1"
-rotation="0 -17.126281454255437 0">
-</a-entity>
+    <a-entity
+    position="7.67604 -1.5 -0.0676"
+    gltf-model="#gemsbok"
+    scale="0.1 0.1 0.1"
+    rotation="0 -14.733036743993987 0">
+    </a-entity>
 
-<a-entity
-position="-10.77654 -1.5 -2.54429"
-gltf-model="#ostrich"
-scale="0.1 0.1 0.1"
-rotation="0 -128.20847398524378 0">
-</a-entity>
-
-<a-entity
-position="-0.62948 -1.5 -5.40882"
-gltf-model="#penguin"
-scale="0.05 0.05 0.05"
-rotation="0 118.40631202614567 0">
-</a-entity>
-
-
-<a-entity
-position="0.28179 -1.5 12.54644"
-gltf-model="#tiger"
-scale="0.1 0.1 0.1"
-rotation="0 10.457052718932655 0">
-</a-entity>
+    <a-entity position="4.05325 -1.5 4.03827"
+    gltf-model="#giraffe"
+    scale="0.1 0.1 0.1"
+    rotation="0 360 0"
+    >
+    </a-entity>
 
 
-<a-entity
-position="1.30047 1.5 -19.80959"
-gltf-model="#whale"
-scale="0.24 0.25 0.25"
-rotation="0 58 0">
-</a-entity>
+    <a-entity position="-1.00627 -1.5 4.29577"
+    gltf-model="#hippo"
+    scale="0.1 0.1 0.1"
+    rotation="0 -32.25809682366048 0">
+    </a-entity>
 
-<a-entity
-position="2.62846 -1.5 0.00315"
-gltf-model="#zebra"
-scale="0.1 0.1 0.1"
-rotation="0 10.457052718932655 0"
-> </a-entity>
+    <a-entity
+    position="4.4554 -1.5 6.54878"
+    gltf-model="#kangaroo"
+    scale="0.1 0.1 0.1"
+    rotation="0 -86.75211271855308 0">
+    </a-entity>
+
+
+    <a-entity
+    position="-10.69143 -1 11.93308"
+    gltf-model="#kudu"
+    scale="0.1 0.1 0.1"
+    rotation="0 -29.548579410486813 0">
+    </a-entity>
+
+    <a-entity
+    position="5.02999 -1 -5.99873"
+    gltf-model="#oryx"
+    scale="0.1 0.1 0.1"
+    rotation="0 -17.126281454255437 0">
+    </a-entity>
+
+    <a-entity
+    position="-10.77654 -1.5 -2.54429"
+    gltf-model="#ostrich"
+    scale="0.1 0.1 0.1"
+    rotation="0 -128.20847398524378 0">
+    </a-entity>
+
+    <a-entity
+    position="-0.62948 -1.5 -5.40882"
+    gltf-model="#penguin"
+    scale="0.05 0.05 0.05"
+    rotation="0 118 0"
+    animation="property: rotation; to: 0 160 0; loop: true; dir: alternate; dur: 10000 easing:easeInOutSine"
+    >
+    </a-entity>
+
+
+    <a-entity
+    position="0.28179 -1.5 12.54644"
+    gltf-model="#tiger"
+    scale="0.1 0.1 0.1"
+    rotation="0 10.457052718932655 0">
+    </a-entity>
+
+
+    <a-entity
+    position="1.30047 1.5 -19.80959"
+    gltf-model="#whale"
+    scale="0.24 0.25 0.25"
+    rotation="0 58 0">
+    </a-entity>
+
+    <a-entity
+    position="2.62846 -1.5 0.00315"
+    gltf-model="#zebra"
+    scale="0.1 0.1 0.1"
+    rotation="0 10.457052718932655 0"
+    > </a-entity>
+
+
 
     </a-scene>
   </body>
