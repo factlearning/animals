@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>...loading animals....</title>
+    <meta name="AR Animals" content="AR Animals">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene background="color: #FAFAFA";
+    sortObjects: true;
+    precision: medium;">
+
+      <a-assets>
+<a-asset-item id="kudu" src="assets/greater_kudu_mf/greater_kudu_mf.gltf"></a-asset-item>
+      </a-assets>
+
+     <!-- position in meters ="x (-left +right), y (height), z (-front +behind); -->
+
+
+
+<a-entity
+position="0 -1 -2"
+gltf-model="#kudu"
+scale="0.1 0.1 0.1"
+rotation="0 -29.548579410486813 0">
+</a-entity>
+
+
+
+    </a-scene>
+  </body>
+</html>
